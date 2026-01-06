@@ -3,45 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gruchowice RP | Status</title>
+    <title>Gruchowice RP | Status Serwera</title>
     <style>
-        :root { --cyan-bright: #00BCD4; --navy-dark: #2C3E50; --light-bg: #F0F2F5; --white-bg: #FFFFFF; --shadow-subtle: 6px 6px 12px #d9dbe1, -6px -6px 12px #ffffff; }
+        :root {
+            --cyan-bright: #00BCD4; --navy-dark: #2C3E50; --light-bg: #F0F2F5; --white-bg: #FFFFFF;
+            --shadow-subtle: 6px 6px 12px #d9dbe1, -6px -6px 12px #ffffff; 
+        }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--light-bg); display: flex; flex-direction: column; min-height: 100vh; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         header { background-color: var(--white-bg); padding: 15px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
         .navbar { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.8em; font-weight: 800; color: var(--navy-dark); }
+        .logo { font-size: 1.8em; font-weight: 800; color: var(--navy-dark); text-decoration: none; }
         nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
         nav li { margin-left: 20px; }
         nav a { color: #333; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 8px; }
-        main { padding: 80px 0; flex-grow: 1; text-align: center; }
-        .status-box { background: var(--white-bg); padding: 50px; border-radius: 20px; box-shadow: var(--shadow-subtle); display: inline-block; }
-        .dot { height: 15px; width: 15px; background: #2ecc71; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #2ecc71; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.3); } 100% { transform: scale(1); } }
+        main { padding: 60px 0; flex-grow: 1; text-align: center; }
+        .status-card { background: var(--white-bg); padding: 40px; border-radius: 20px; box-shadow: var(--shadow-subtle); display: inline-block; min-width: 300px; }
+        .dot { height: 15px; width: 15px; background-color: #2ecc71; border-radius: 50%; display: inline-block; margin-right: 10px; box-shadow: 0 0 10px #2ecc71; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.2); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
+        .info-item { margin-top: 20px; font-size: 1.2em; color: var(--navy-dark); }
         footer { background-color: var(--white-bg); padding: 20px 0; text-align: center; border-top: 1px solid #ddd; margin-top: auto; }
     </style>
 </head>
 <body>
     <header>
         <div class="container navbar">
-            <div class="logo">GRUCHOWICE RP</div>
+            <a href="index.html" class="logo">GRUCHOWICE RP</a>
             <nav>
                 <ul>
                     <li><a href="index.html">START</a></li>
                     <li><a href="factions.html">FRAKCJE</a></li>
-                    <li><a href="status.html">STATUS</a></li>
-                    <li><a href="galeria.html" style="color: var(--cyan-bright); font-weight: bold;">GALERIA</a></li>
+                    <li><a href="rules.html">REGULAMIN</a></li>
+                    <li><a href="status.html" style="background: rgba(0,188,212,0.1); color: var(--cyan-bright); font-weight: bold;">STATUS</a></li>
+                    <li><a href="galeria.html">GALERIA</a></li>
                     <li><a href="admin.html">ADMIN</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main class="container">
-        <div class="status-box">
-            <h2 style="margin: 0;"><span class="dot"></span> SERWER ONLINE</h2>
-            <p style="font-size: 1.2em; margin-top: 20px;">Liczba graczy: <strong>45 / 100</strong></p>
+        <h2>Monitor Serwera</h2>
+        <div class="status-card">
+            <div style="font-size: 1.5em; font-weight: bold;"><span class="dot"></span> <span id="server-status">Ładowanie...</span></div>
+            <div class="info-item">Graczy online: <strong id="player-count">--</strong></div>
+            <div class="info-item" style="font-size: 0.9em; color: gray;">Wersja: Gruchowice_v1.0.4</div>
         </div>
     </main>
     <footer><p>© 2026 Gruchowice RP. Strona utworzona przez: youngmajster_</p></footer>
+
+    <script>
+        // WPISZ TUTAJ SWOJE UNIVERSE ID (nie Place ID!)
+        // Universe ID znajdziesz w ustawieniach gry na Roblox Create
+        const UNIVERSE_ID = "TWÓJ_UNIVERSE_ID_TUTAJ"; 
+
+        async function updateStatus() {
+            try {
+                // Używamy darmowego proxy do ominięcia błędu CORS
+                const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://games.roblox.com/v1/games?universeIds=' + UNIVERSE_ID)}`);
+                const data = await response.json();
+                const gameData = JSON.parse(data.contents);
+
+                if (gameData.data && gameData.data.length > 0) {
+                    const players = gameData.data[0].playing;
+                    document.getElementById('player-count').innerText = players + " / 100";
+                    document.getElementById('server-status').innerText = "SERWER ONLINE";
+                }
+            } catch (error) {
+                console.error("Błąd pobierania statusu:", error);
+                document.getElementById('server-status').innerText = "BŁĄD POŁĄCZENIA";
+                document.getElementById('player-count').innerText = "Offline";
+            }
+        }
+
+        updateStatus();
+        // Odświeżaj co 60 sekund
+        setInterval(updateStatus, 60000);
+    </script>
 </body>
 </html>
