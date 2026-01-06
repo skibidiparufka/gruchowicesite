@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gruchowice RP | Start</title>
+    <style>
+        :root {
+            --cyan-bright: #00BCD4; --navy-dark: #2C3E50; --light-bg: #F0F2F5; --white-bg: #FFFFFF;
+            --text-main: #333333; --shadow-subtle: 6px 6px 12px #d9dbe1, -6px -6px 12px #ffffff; 
+        }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--light-bg); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background-color: var(--white-bg); padding: 15px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8em; font-weight: 800; color: var(--navy-dark); }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav li { margin-left: 20px; }
+        nav a { color: #333; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 8px; transition: 0.3s; }
+        nav a:hover { background: rgba(0,188,212,0.1); color: var(--cyan-bright); }
+        .hero { padding: 100px 0; text-align: center; }
+        .hero h1 { font-size: 3.5em; color: var(--navy-dark); margin-bottom: 20px; }
+        .cta-button { display: inline-block; background: var(--white-bg); color: var(--cyan-bright); padding: 15px 40px; border-radius: 12px; font-weight: bold; text-decoration: none; box-shadow: var(--shadow-subtle); transition: 0.3s; }
+        .cta-button:hover { background: var(--cyan-bright); color: white; transform: translateY(-3px); }
+        footer { background-color: var(--white-bg); padding: 20px 0; text-align: center; border-top: 1px solid #ddd; margin-top: auto; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <div class="logo">GRUCHOWICE RP</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">START</a></li>
+                    <li><a href="factions.html">FRAKCJE</a></li>
+                    <li><a href="status.html">STATUS</a></li>
+                    <li><a href="galeria.html" style="color: var(--cyan-bright); font-weight: bold;">GALERIA</a></li>
+                    <li><a href="admin.html">ADMIN</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="hero container">
+        <h1>Witaj w Gruchowicach</h1>
+        <p>Odkryj najlepszy polski RolePlay w świecie Roblox. Profesjonalne frakcje i realistyczna rozgrywka.</p>
+        <a href="LINK_DO_ROBLOX" class="cta-button">DOŁĄCZ DO GRY</a>
+    </main>
+    <footer><p>© 2026 Gruchowice RP. Strona utworzona przez: youngmajster_</p></footer>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gruchowice RP | Administracja</title>
+    <style>
+        /* --- Zmienne Kolorystyczne --- */
+        :root {
+            --cyan-bright: #00BCD4; 
+            --navy-dark: #2C3E50; 
+            --light-bg: #F0F2F5; 
+            --white-bg: #FFFFFF; 
+            --text-main: #333333; 
+            --text-secondary: #666; 
+            --shadow-subtle: 6px 6px 12px #d9dbe1, -6px -6px 12px #ffffff; 
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--light-bg);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- Header & Nawigacja --- */
+        header { background-color: var(--white-bg); padding: 15px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8em; font-weight: 800; color: var(--navy-dark); text-decoration: none; }
+        
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav li { margin-left: 20px; }
+        nav a { color: var(--text-main); text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 8px; transition: 0.3s; }
+        nav a:hover, nav .active-link { background-color: rgba(0, 188, 212, 0.1); color: var(--cyan-bright); font-weight: bold; }
+
+        /* --- Treść Główna --- */
+        main { padding: 60px 0; flex-grow: 1; }
+        h2 { text-align: center; font-size: 2.5em; color: var(--navy-dark); margin-bottom: 40px; }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .admin-card {
+            background: var(--white-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-subtle);
+            text-align: center;
+            border-bottom: 4px solid var(--cyan-bright);
+        }
+
+        .admin-role {
+            font-size: 0.85em;
+            font-weight: bold;
+            color: var(--cyan-bright);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .admin-nick {
+            font-size: 1.5em;
+            color: var(--navy-dark);
+            margin: 10px 0;
+            font-weight: 800;
+        }
+
+        /* --- Sekcja Polityki --- */
+        .policy-box {
+            background: var(--white-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-subtle);
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* --- Stopka --- */
+        footer { background-color: var(--white-bg); padding: 25px 0; text-align: center; border-top: 1px solid #ddd; margin-top: auto; }
+        footer p { margin: 5px 0; color: var(--text-secondary); font-size: 0.9em; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">GRUCHOWICE RP</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">START</a></li>
+                    <li><a href="factions.html">FRAKCJE</a></li>
+                    <li><a href="rules.html">REGULAMIN</a></li>
+                    <li><a href="status.html">STATUS</a></li>
+                    <li><a href="galeria.html">GALERIA</a></li>
+                    <li><a href="admin.html" class="active-link">ADMIN</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Zarząd Serwera</h2>
+
+        <div class="admin-grid">
+            <div class="admin-card">
+                <div class="admin-role">Właściciel / Developer</div>
+                <div class="admin-nick">mikokostusk</div>
+                <p>Właściciel strony oraz developer gry.</p>
+            </div>
+
+            <div class="admin-card">
+                <div class="admin-role">Właściciel Strony </div>
+                <div class="admin-nick">youngmajster_</div>
+                <p>Główny twórca strony i systemów Gruchowic.</p>
+            </div>
+            <div class="admin-card">
+                <div class="admin-role">Developer Gry</div>
+                <div class="admin-nick">Drukuś</div>
+                <p>Twórca gry / budynków oraz skryptów.</p>
+            </div>
+            <div class="admin-card">
+                <div class="admin-role">Developer Gry</div>
+                <div class="admin-nick">Lexor</div>
+                <p>Twórca gry / budynków oraz skryptów.</p>
+            </div>
+            <div class="admin-card">
+                <div class="admin-role">Developer Discord</div>
+                <div class="admin-nick">youngmajster_</div>
+                <p>Główny twórca discorda i systemów.</p>
+            </div>
+            <div class="admin-card">
+                <div class="admin-role">Developer Gry</div>
+                <div class="admin-nick">Kuba</div>
+                <p>Twórca gry / budynków oraz skryptów.</p>
+            </div>
+            <div class="admin-card">
+                <div class="admin-role">Developer Gry</div>
+                <div class="admin-nick">Matronixo</div>
+                <p>Twórca gry / budynków oraz skryptów.</p>
+            </div>
+            <div class="admin-card">
+                <div class="admin-role">Developer Gry</div>
+                <div class="admin-nick">Macziato_bagietato</div>
+                <p>Twórca gry / budynków oraz skryptów.</p>
+            </div>
+            <div class="admin-card">
+                <div class="admin-role">Developer Gry</div>
+                <div class="admin-nick">youngmajster_</div>
+                <p>Twórca gry / budynków oraz skryptów.</p>
+            </div>
+        </div>
+
+        <div class="policy-box">
+            <h3 style="color: var(--navy-dark);">Polityka Administracji</h3>
+            <p>Administracja Gruchowice RP działa zgodnie z regulaminem serwera. Naszym celem jest zapewnienie wysokiego poziomu RolePlay oraz pomoc graczom w każdej sytuacji.</p>
+            <p style="font-weight: bold; color: var(--cyan-bright);">Masz problem? Napisz Ticket na naszym Discordzie!</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Gruchowice RP. Wszelkie prawa zastrzeżone.</p>
+        <p>Strona utworzona przez: youngmajster_</p>
+    </footer>
+
+</body>
+</html>

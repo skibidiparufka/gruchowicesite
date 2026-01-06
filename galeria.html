@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gruchowice RP | Galeria</title>
+    <style>
+        :root { --cyan-bright: #00BCD4; --navy-dark: #2C3E50; --light-bg: #F0F2F5; --white-bg: #FFFFFF; --shadow-subtle: 6px 6px 12px #d9dbe1, -6px -6px 12px #ffffff; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: var(--light-bg); display: flex; flex-direction: column; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background-color: var(--white-bg); padding: 15px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8em; font-weight: 800; color: var(--navy-dark); }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav li { margin-left: 20px; }
+        nav a { color: #333; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 8px; }
+        main { padding: 60px 0; flex-grow: 1; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .photo { width: 100%; height: 200px; background: #ddd; border-radius: 15px; box-shadow: var(--shadow-subtle); display: flex; align-items: center; justify-content: center; font-weight: bold; color: #888; }
+        footer { background-color: var(--white-bg); padding: 20px 0; text-align: center; border-top: 1px solid #ddd; margin-top: auto; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <div class="logo">GRUCHOWICE RP</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">START</a></li>
+                    <li><a href="factions.html">FRAKCJE</a></li>
+                    <li><a href="status.html">STATUS</a></li>
+                    <li><a href="galeria.html" style="color: var(--cyan-bright); font-weight: bold;">GALERIA</a></li>
+                    <li><a href="admin.html">ADMIN</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h2 style="text-align: center;">Galeria Miasta</h2>
+        <div class="gallery-grid">
+            <div class="photo">ZDJĘCIE 1</div>
+            <div class="photo">ZDJĘCIE 2</div>
+            <div class="photo">ZDJĘCIE 3</div>
+        </div>
+    </main>
+    <footer><p>© 2026 Gruchowice RP. Strona utworzona przez: youngmajster_</p></footer>
+</body>
+</html>	
